@@ -1,0 +1,186 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css"
+        integrity="sha512-DTOQO9RWCH3ppGqcWaEA1BIZOC6xxalwEsw9c2QQeAIftl+Vegovlnee1c9QX4TctnWMn13TZye+giMm8e2LwA=="
+        crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <link rel="stylesheet" href="path/to/font-awesome/css/all.min.css">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN" crossorigin="anonymous">
+</head>
+
+<body>
+    <div class="container bg-white" id="container" style="width: 100%; height: 250vh;">
+        <div class="box" style="width: 200px; height: 30px; margin-top: 3%; border: 2px solid #333; border-radius: 7px;">
+            <div><i class="fas fa-search"></i> Search...</div>
+        </div>
+        <div class="box" style="width: 190px; height: 30px; margin-top: -2%; margin-left: 80%; border: 2px solid #333; border-radius: 7px;">
+            <div><i class="fas fa-plus"></i> Create New <i class="fas fa-caret-down" style="margin-left: 30%;"></i>
+                <div style="margin-left: 110%; margin-top: -12%;"><i class="fas fa-ellipsis-vertical"></i></div>
+                <div style="margin-left: 120%; margin-top: -13%;"><i class="fas fa-caret-down"></i></div>
+            </div>
+        </div>
+        <br>
+        <script>
+            let json = {
+
+                "data": [
+                    { "icon": '<i class="fab fa-google-drive" style="font-size: 1.9em;"></i>', "txt": "Google Drive", "txt1": "View Folder", "num": "20GB", "used": "50GB used" },
+                    { "icon": '<i class="fab fa-dropbox" style="font-size: 1.9em;"></i>', "txt": "Dropbox", "txt1": "View Folder", "num": "20GB", "used": "50GB used" },
+                    { "icon": '<i class="fa-solid fa-cloud" style="font-size: 1.8em;"></i>', "txt": "OneDrive", "txt1": "View Folder", "num": "20GB", "used": "50GB used" }
+                ],
+
+                "folder": [
+                    { "icon1": '<i class="fa-solid fa-folder" style=" font-size: 1.9em; "></i>', "image1": "./img1.jpg", "image2": "./img2.webp", "analytics": "Analytics", "files": "12 Files", "time": "15 min ago" },
+                    { "icon1": '<i class="fa-solid fa-folder" style=" font-size: 1.9em; "></i>', "image1": "./img1.jpg", "image2": "./img2.webp", "analytics": "Sketch Design", "files": "235 Files", "time": "23 min ago" },
+                    { "icon1": '<i class="fa-solid fa-folder" style=" font-size: 1.9em; "></i>', "image1": "./img1.jpg", "image2": "./img2.webp", "analytics": "Applications", "files": "20 Files", "time": "45 min ago" }
+                ],
+
+                "table_data": [
+                    { "name": "index.html", "date_modified": "12-10-2020, 09:45", "size": "09 KB", "members": [{ "name": "hema", "img": "./img1.jpg" }, { "name": "hp", "img1": "./img2.webp" }, { "name": "shalu", "img2": "./img1.jpg" }] },
+                    { "name": "Project-A.zip", "date_modified": "11-10-2020, 17:05", "Size": "115 KB", "members": [{ "name": "hema", "img": "./img1.jpg" }, { "name": "shalu", "img1": "./img3.jpg" }] },
+                    { "name": "Img-1.jpeg", "date_modified": "11-10-2020, 13:26", "size": "86 KB", "members": [{ "name": "hema", "img": "./img1.jpg" }, { "name": "hp", "img1": "./img2.webp" }] },
+                    { "name": "update list.txt", "date_modified": "10-10-2020, 11:32", "size": "08 KB", "members": [{ "name": "hema", "img": "./img1.jpg" }, { "name": "hp", "img1": "./img2.webp" }, { "name": "shalu", "img2": "./img1.jpg" }] },
+                    { "name": "Project B", "date_modified": "10-10-2020, 10:51", "size": "72 KB", "members": [{ "name": "hema", "img": "./img1.jpg" }, { "name": "hp", "img1": "./img2.webp" }, { "name": "shalu", "img2": "./img1.jpg" }] },
+                    { "name": "Changes list.txt", "date_modified": "09-10-2020, 17:05", "size": "07 KB", "members": [{ "name": "hema", "img": "./img1.jpg" }, { "name": "hp", "img1": "./img2.webp" }] },
+                    { "name": "Img-2.png", "date_modified": "10-10-2020, 15:12", "size": "31 KB", "members": [{ "name": "hema", "img": "./img1.jpg" }, { "name": "hp", "img1": "./img2.webp" }] }
+                ]};
+
+            let HTML = "";
+
+            HTML += `<div><b>My Files</b></div> <br>`;
+            HTML += `<div class="grp1" style="display: flex; justify-content: space-between;"></div>`;
+            json.data.forEach(item => {
+                HTML += `
+                    
+                        <div class="box" style="width: 400px; height: 150px; border: 2px solid #333; border-radius: 7px; display:inline-block;">
+                            <div class="icon" style="color:blue ;  margin-left: 4%; margin-top: 4%;">${item.icon}
+                                <div class="txt" style="color: black; margin-left: 10%; margin-top: -10%;"><b>${item.txt}</b></div>
+                                <div class="txt1" style="color: gray; text-decoration: underline; margin-left: 10%;">${item.txt1}</div>
+                                <div class="icon1" style="color: black; margin-left: 90%; margin-top: -10%;"><i class="fas fa-ellipsis-vertical"></i>
+                                    <i class="fas fa-caret-down"></i>
+                                </div>
+                            </div>
+                            <div class="num" style="color: gray; margin-left: 4%; margin-top: 8%;">${item.num}</div>
+                            <div class="used" style="color: gray; margin-left: 80%; margin-top: -5%;">${item.used}</div>
+                            <div class="box" style="width: 300px; height: 30px; border: #333;"></div>
+                        </div>
+                    `;
+            });
+
+            HTML += `  <br> <div><b>Folders</b></div> <br>`;
+            HTML += ` <div class="grp2" style="display: flex; justify-content: space-between;"></div>`;
+            json.folder.forEach(item => {
+                HTML += `
+              
+                        <div class="box" style="width: 400px; height: 150px; border: 2px solid #333; border-radius: 7px; display:inline-block;">
+                            <div class="icon1" style="color:gold;  margin-left: 4%; margin-top: 4%;">${item.icon1}
+                                <img class="image1" src="${item.image1}" style="width: 30px; height: 30px; margin-left: 70%; margin-top: -3%;"/>
+                                <img class="image2" src="${item.image2}" style="width: 30px; height: 30px; margin-top: -3%;"/>
+                            </div>
+                            <div class="analytics" style="margin-top: 9%; margin-left: 4%;"><b>${item.analytics}</b></div>
+                            <div class="files" style="color: gray; margin-left: 4%;">${item.files}</div>
+                            <div class="time" style="margin-left: 72%; color: gray; margin-top: -6%;"><i class="fa-solid fa-clock" style="color:darkgrey; "></i> ${item.time}</div>
+                        </div>
+                    </div>`;
+            });
+
+            HTML += `  <br> <div class="text"><b>Recent Files</b>
+                <div class="text1" style="text-align: right; margin-top: -1%;"><b>View All</b></div>
+            </div>
+            <hr>`;
+            HTML += `
+                <table class="table table-striped">
+                    <thead>
+                        <tr>
+                            <th><b>Name</b></th>
+                            <th><b>Date Modified</b></th>
+                            <th><b>Size</b></th>
+                            <th><b>Members</b></th>
+                            <th></th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td><i class="fa-brands fa-html5" style="color:cornflowerblue ;"></i> ${json.table_data[0].name}</td>
+                            <td>${json.table_data[0].date_modified}</td>
+                            <td>${json.table_data[0].size}</td>
+                            <td><img class="img1" src="${json.table_data[0].members[0].img}" style="width: 30px; height: 30px;">
+                                <img class="img2" src="${json.table_data[0].members[1].img1}" style="width: 30px; height: 30px;">
+                                <img class="img2" src="${json.table_data[0].members[2].img2}" style="width: 30px; height: 30px;">
+                            </td>
+                            <td><i class="fa-solid fa-ellipsis"></i> </td>
+                        </tr>
+                        <tr>
+                            <td><i class="fa-solid fa-file-zipper" style="color: goldenrod;"></i> ${json.table_data[1].name}</td>
+                            <td>${json.table_data[1].date_modified}</td>
+                            <td>${json.table_data[1].size}</td>
+                            <td><img class="img1" src="${json.table_data[1].members[0].img}" style="width: 30px; height: 30px;">
+                                <img class="img2" src="${json.table_data[1].members[1].img1}" style="width: 30px; height: 30px;">
+                                
+                            </td>
+                            <td><i class="fa-solid fa-ellipsis"></i> </td>
+                        </tr>
+                        <tr>
+                            <td><i class="fa-solid fa-file-image" style="color:grey ;"></i> ${json.table_data[2].name}</td>
+                            <td>${json.table_data[2].date_modified}</td>
+                            <td>${json.table_data[2].size}</td>
+                            <td><img class="img1" src="${json.table_data[2].members[0].img}" style="width: 30px; height: 30px;">
+                                <img class="img2" src="${json.table_data[2].members[1].img1}" style="width: 30px; height: 30px;">
+                                
+                            </td>
+                            <td><i class="fa-solid fa-ellipsis"></i> </td>
+                        </tr>
+                        <tr>
+                            <td><i class="fa-solid fa-file-lines" style="color:gray ;"></i> ${json.table_data[3].name}</td>
+                            <td>${json.table_data[3].date_modified}</td>
+                            <td>${json.table_data[3].size}</td>
+                            <td><img class="img1" src="${json.table_data[3].members[0].img}" style="width: 30px; height: 30px;">
+                                <img class="img2" src="${json.table_data[3].members[1].img1}" style="width: 30px; height: 30px;">
+                                <img class="img2" src="${json.table_data[3].members[2].img2}" style="width: 30px; height: 30px;">
+                            </td>
+                            <td><i class="fa-solid fa-ellipsis"></i> </td>
+                        </tr>
+                        <tr>
+                            <td><i class="fa-solid fa-folder" style="color: gold;"></i> ${json.table_data[4].name}</td>
+                            <td>${json.table_data[4].date_modified}</td>
+                            <td>${json.table_data[4].size}</td>
+                            <td><img class="img1" src="${json.table_data[4].members[0].img}" style="width: 30px; height: 30px;">
+                                <img class="img2" src="${json.table_data[4].members[1].img1}" style="width: 30px; height: 30px;">
+                                <img class="img2" src="${json.table_data[4].members[2].img2}" style="width: 30px; height: 30px;">
+                            </td>
+                            <td><i class="fa-solid fa-ellipsis"></i> </td>
+                        </tr>
+                        <tr>
+                            <td><i class="fa-solid fa-file-lines" style="color:gray ;"></i> ${json.table_data[5].name}</td>
+                            <td>${json.table_data[5].date_modified}</td>
+                            <td>${json.table_data[5].size}</td>
+                            <td><img class="img1" src="${json.table_data[5].members[0].img}" style="width: 30px; height: 30px;">
+                                <img class="img2" src="${json.table_data[5].members[1].img1}" style="width: 30px; height: 30px;">
+                                
+                            </td>
+                            <td><i class="fa-solid fa-ellipsis"></i> </td>
+                        </tr>
+                        <tr>
+                            <td><i class="fa-solid fa-file-image" style="color:hsl(131, 46%, 36%) ;"></i> ${json.table_data[6].name}</td>
+                            <td>${json.table_data[6].date_modified}</td>
+                            <td>${json.table_data[6].size}</td>
+                            <td><img class="img1" src="${json.table_data[6].members[0].img}" style="width: 30px; height: 30px;">
+                                <img class="img2" src="${json.table_data[6].members[1].img1}" style="width: 30px; height: 30px;">
+                                
+                            </td>
+                            <td><i class="fa-solid fa-ellipsis"></i> </td>
+                        </tr>
+                    </tbody>
+                </table>`;
+
+            document.getElementById("container").innerHTML = HTML;
+        </script>
+    </body>
+
+</html>

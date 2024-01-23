@@ -1,0 +1,44 @@
+<script>
+    // JS
+    function add(a, b, d){
+        let c = a + b + d;
+        return c
+    }
+
+    // ES6 - Arrow Function
+    const sub = (a,b,d) =>{
+        let c = a - b - d;
+        return c;
+    }
+
+    mul = (a,b,d) =>{
+        let c = a * b * d;
+        return c
+    }
+
+    div = (a,b,d) =>{
+        let c = a / b / d;
+        return c
+    }
+
+    modulo = (a,b,d) =>{
+        let c= a%b%d;
+        return c
+    }
+
+    // ES6 - Default Value
+    const mod = (a,b=2) =>{
+        let c = a%b;
+        return c
+    }
+
+    console.log("add : "+add(3,5,3))
+    console.log("sub : "+sub(8,5,9))
+    console.log("mul : "+mul(2,4,2))
+    console.log("div : "+div(8,5,6))
+    console.log("modulo : "+modulo(8,5,7))
+    console.log("Odd or Even : "+mod(5))
+    console.log("Odd or Even : "+mod(44))
+    console.log("Odd or Even : "+mod(53))
+    console.log("Odd or Even : "+mod(122,3))
+</script>

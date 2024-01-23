@@ -1,0 +1,41 @@
+<table>
+    <thead>
+        <tr>
+            <th>Name</th>
+            <td>Age</td>
+            <td>Gender</td>
+        </tr>
+    </thead>
+    <tbody id="content"></tbody>
+    <button type="button" onclick="Addnewrow()">Add new row</button>
+</table>
+<script>
+    let users = {"data":[{"name":"hema",age:23,gender:"female"},{"name":"hema",age:23,gender:"female"},
+    {"name":"hema",age:23,gender:"female"}
+    ]}
+
+    function table(){
+        let innerHTML = ""
+        //ES6 for loop
+        for(let user of users.data){
+            innerHTML +=`<tr>
+                <th>${user.name}</th>
+                <td>${user.age}</td>
+                <td>${user.gender}</td>
+            </tr>`
+    }
+    document.getElementById("content").innerHTML=innerHTML
+    }
+    
+
+    function Addnewrow(){
+        let newuser = {"name":"hd",age:2,gender:"male"};
+        users.data.push(newuser);
+        table();
+    }
+    table();
+
+
+
+    
+</script>

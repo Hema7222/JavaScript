@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv='X-UA-Compatible' content='IE=edge'>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script>
+        function onLoad(){
+            // alert(documuent.getElementById("aTag").innerHTML) 
+            document.getElementById("aTag").href = "dom1.html"
+            document.getElementById("aTag").innerHTML = "Welcome A Tag"
+            document.getElementById("divTag").style.color = "#ff0000"
+            document.getElementById("divTag").style.background = "#999999"
+            document.getElementById("imgId").src="./img1.jpg"
+            document.getElementById("imgId").style.width="50px"
+
+            document.getElementById("aTag").innerHTML = document.forms["loginForm"]["email"].value
+
+            let ptag = document.getElementById("pTag")
+            ptag.onclick=pOnclick();
+        }
+        function emailOnchange(){
+            console.log("cfgvuhbijn")
+            document.getElementById("pTag").innerHTML = document.forms["loginForm"]["[email]"].value
+            alert()
+        }
+
+        function formOnsubmit(){
+            console.log(`Email: ${document.forms["loginForm"]["email"].value}`)
+            console.log(`Password: ${document.forms["loginForm"]["[password]"].value}`)
+            alert()
+        }
+
+        function divOnclick(e){
+            console.log(""+e.innerHTML);
+            e.innerHTML = "NEW TEXT"
+        }
+
+        function divOndblclick(e){
+            console.log(""+e.innerHTML);
+            e.innerHTML = "UPDATED TEXT"
+        }
+  
+    </script>
+</head>
+<body onload="onLoad()">
+    <!-- <p>P tag: Hello World</p>
+    <div class="mydiv">Hello Div</div> -->
+    <a id="aTag" href="dom.html">Hello A tag</a>
+    <div id="divTag" onclick="divOnclick(this)" onclick="divOndblclick(this)">Hello Div Tag</div>
+    
+    <p id="pTag">Hello p Tag</p>
+    <img id="imgId"  />
+    <form name="loginform">
+        <input name="email" placeholder="Email" type="email" value="hema@upi"/>
+        <input name="password" placeholder="Email" type="password" value="hema"/>
+        <input name="submit" type="submit" value="submit"/>
+    </form>
+</body>
+</html>

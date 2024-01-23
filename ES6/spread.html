@@ -1,0 +1,53 @@
+<script>
+    const add = (a,b,c)=>{
+        let d = a+b+c;
+        return d;
+    }
+
+    const addArr = (a) =>{
+        let d = 0;
+        a.forEach(element => {
+            d=d+element;
+        });
+        return d;
+    }
+
+    const addSpread = (...a)=>{       //instead of using n number of variables we can use spread operator [...a]
+        let d=0;
+        a.forEach(val =>{
+            d=d+val;
+        });
+        return d;
+    }
+
+    const mulSpread = (...num)=>{
+        let d=1;
+        num.forEach(val =>{
+            d=d*val;
+        });
+        return d;
+    }
+
+    const addSpread1 = (...a)=>{
+        let d=0;
+        a.forEach(val =>{
+            d=parseInt(d) + parseInt(val);
+        });
+        return d;
+    }
+
+    console.log("add "+add(22,2,2))
+    console.log("addArr "+addArr([22,2,2]))
+    console.log("addSpread "+addSpread(22,2,2,5))
+    console.log("mulSpread "+mulSpread(2,2,2,5))
+    let a=[1,4,5]
+    let b=[2,3]
+    let c=3
+    let d=[3,2,1]
+    let e=["6","7"]
+    console.log("addSpread1 "+ addSpread1(...a,...b,c,...d,...e))
+    let f=[a,b,d]
+    console.log("Normal array merge "+f)
+    let g=[...a,...b,...d]
+    console.log("Spread "+g)
+</script>

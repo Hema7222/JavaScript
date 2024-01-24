@@ -17,23 +17,43 @@
     function table(){
         let innerHTML = ""
         //ES6 for loop
-        for(let user of users.data){
+    //     for(let user of users.data){
+            
+    //         innerHTML +=`<tr>
+    //             <th>${user.name}</th>
+    //             <td>${user.age}</td>
+    //             <td>${user.gender}</td>
+    //         </tr>`
+    // }
+
+    //object destructuring
+    for(let user of users.data){
+        let {name,age} = user
             innerHTML +=`<tr>
-                <th>${user.name}</th>
-                <td>${user.age}</td>
+                <th>${name}</th>
+                <td>${age}</td>
                 <td>${user.gender}</td>
             </tr>`
     }
+    
     document.getElementById("content").innerHTML=innerHTML
     }
+
+
+
+   
+    
     
 
-    function Addnewrow(){
-        let newuser = {"name":"hd",age:2,gender:"male"};
-        users.data.push(newuser);
-        table();
-    }
-    table();
+    // function Addnewrow(){
+    //     let newuser = {"name":"hd",age:2,gender:"male"};
+    //     users.data.push(newuser);
+        
+    //     let newuser1 = {"name":"kavya",age:26,gender:"female"};
+    //     users.data.push(newuser1);
+    //     table();
+    // }
+    // table();
 
 
 

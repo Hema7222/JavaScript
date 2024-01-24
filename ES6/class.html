@@ -1,0 +1,81 @@
+<script>
+    class Arith{
+        constructor(a, b){
+        }
+
+        sub = (a, b) =>{
+            return a - b;
+        }
+    }
+
+    class abstract{
+
+    }
+
+    class Test1 extends Arith{
+        constructor(a, b){
+            super(a, b);
+            this.name = "HEMA"
+            this.age = "23"
+            
+        }
+
+        addnew = (...a)=>{
+            let answer =0;
+            a.forEach(val =>{
+                answer = answer + val
+            })
+            return answer;
+        }
+
+        sub = (a, b) =>{
+            return a* b;
+        }
+        
+
+        add = (a,b) =>{
+            return a+b;
+        }
+
+        add = (num1,num2) =>{
+            return  num1+num2;
+        }
+
+        getAge = () =>{
+            return this.age;
+        }
+
+        getName = () =>{
+            return this.name;
+        }
+
+        setName =(name) =>{
+            this.name=name;
+        }
+
+        setAge = (age) =>{
+            this.age=age;
+        }
+    }
+
+    let a=10;
+    let b="hema"
+    let arith = new Arith(a, b);
+    let test1 = new Test1(a, b);
+    console.log(test1.name)
+    console.log(test1.age)
+
+    // console.log(+addnew(...a))
+
+    console.log(test1.add(3,4))
+    console.log("addnew :"+test1.add("3","4"))
+
+    console.log(test1.getName())
+    console.log(test1.getAge())
+    test1.setName("hp")
+    test1.setAge("23")
+
+    console.log("sub :"+arith.sub(5,4))
+
+    console.log("subnew :"+test1.sub(3,3))
+</script>

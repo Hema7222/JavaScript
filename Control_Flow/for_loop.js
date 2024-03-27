@@ -22,6 +22,28 @@ let s=["Hema","Hari","Hp","shalu"]
 //     console.log(res);
 // });
 
+function App(){
+    let arr = [10,20,30,40,50]
+    let i=0;
+
+    function recursive(arr,i){
+        if(i<arr.length){
+            console.log("recur asc"+arr[i])
+            recursive(arr,i+1);
+        }
+    }
+    recursive(arr,i)
+}
+
+// let i=0
+// function recursive(arr,i){
+//     if(i<arr.length){
+//         console.log("recur asc"+arr[i])
+//         recursive(arr,i+1);
+//     }
+// }
+// recursive(arr,i)
+
 let res1=s.map(element=>{return {"name" : element}});
 console.log(res1);
 

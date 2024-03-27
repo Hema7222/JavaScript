@@ -39,21 +39,14 @@
     document.getElementById("content").innerHTML=innerHTML
     }
 
-
-
-   
-    
-    
-
-    // function Addnewrow(){
-    //     let newuser = {"name":"hd",age:2,gender:"male"};
-    //     users.data.push(newuser);
+    function Addnewrow(){
+        let newuser = {"name":"hd",age:2,gender:"male"};
+        users.data = [...users.data, newuser]
         
-    //     let newuser1 = {"name":"kavya",age:26,gender:"female"};
-    //     users.data.push(newuser1);
-    //     table();
-    // }
-    // table();
+        // users.data.push(newuser);   //using push method
+        table();
+    }
+    table();
 
 
 
